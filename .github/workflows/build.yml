@@ -18,14 +18,16 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Berikan Izin Eksekusi Gradle
-        run: chmod +x gradlew
+      - name: Pasang Gradle Otomatis
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.7'
 
       - name: Kompilasi APK (Debug)
-        run: ./gradlew assembleDebug --no-daemon
+        run: gradle assembleDebug --no-daemon --stacktrace
 
       - name: Upload File APK
         uses: actions/upload-artifact@v4
         with:
           name: ExamBrowser-Asisi-APK
-          path: app/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/**/*.apk
