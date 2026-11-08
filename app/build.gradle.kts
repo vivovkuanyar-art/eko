@@ -1,26 +1,33 @@
+// Beri komentar (//) pada baris import GoogleServices paling atas jika ada
 // import com.google.gms.googleservices.GoogleServicesPlugin.MissingGoogleServicesStrategy
 
 plugins {
-  alias(libs.plugins.android.application)
-  alias(libs.plugins.kotlin.compose)
-  alias(libs.plugins.google.devtools.ksp)
-  // alias(libs.plugins.secrets)
-  // alias(libs.plugins.google.services)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.google.devtools.ksp)
+    // Nonaktifkan 2 plugin di bawah ini:
+    // alias(libs.plugins.secrets)
+    // alias(libs.plugins.google.services)
 }
 
 android {
-  namespace = "com.example"
-  compileSdk { version = release(36) { minorApiLevel = 1 } }
+    namespace = "com.aistudio.exambrowser.sentani"
+    
+    // Ubah compileSdk ke 34 (versi stabil GitHub Runner)
+    compileSdk = 34
 
-  defaultConfig {
-    applicationId = "com.aistudio.exambrowser.sentani"
-    minSdk = 24
-    targetSdk = 36
-    versionCode = 1
-    versionName = "1.0"
+    defaultConfig {
+        applicationId = "com.aistudio.exambrowser.sentani"
+        minSdk = 24
+        // Ubah targetSdk ke 34
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
 
-    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-  }
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // Biarkan konfigurasi buildTypes dan signingConfigs di bawahnya tetap seperti semula
 
   // Do not remove or modify these signingConfigs. They are necessary for building, installing,
   // and updating Android apps in AI Studio.
